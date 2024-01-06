@@ -1,0 +1,102 @@
+$primary-color: #e74848;
+$bg-color: #292a2b;
+$font-color--light: #fff;
+$font-color--medium: #bbb;
+$font-color--dark: #999;
+
+$qut-width: 43rem;
+
+*,
+*::before,
+*::after {
+  margin:0; padding:0;
+  box-sizing: inherit;
+}
+html { 
+  font-size:62.5%; font-family:'Dosis', sans-serif; 
+  
+  @media only screen and (max-width:$qut-width) { font-size:50%; }
+}
+body { 
+  box-sizing: border-box; 
+  height:90vh; width:100vw;
+  background-color: $bg-color;
+  display:grid; place-items:center; align-content:space-evenly;
+}
+
+.container { 
+  width:$qut-width; height:auto; 
+  overflow: hidden;
+}
+
+.heading__h1 {
+  font-size:3.5rem; font-weight:300;
+  color: rgba($primary-color, .8);
+  text-transform: capitalize;
+  
+  @media only screen and (max-width:$qut-width) { font-size:3rem; }
+}
+
+.slider-width {
+  display: flex;
+  width: 180rem;
+  transition: all .5s;
+}
+
+.quote {
+  margin: 7.5rem 3%;
+  width: $qut-width;
+  
+  &__qut {
+    font-size:2rem; font-weight:500;
+    color: $font-color--medium;
+    word-spacing:3px; letter-spacing:1px; line-height:1.6;
+    border:2px solid $primary-color; border-radius:1rem;
+    padding: 2rem;
+    position: relative; /* for psodo element */
+    display: inline-block;
+    
+    &--joy { color:$primary-color; }
+    
+    &::before {
+      content: '';
+      position:absolute; bottom:-2px; left:2rem;
+      height:2px; width:6rem;
+      background-color: $bg-color;
+    }
+    &::after {
+      content: '';
+      position:absolute; bottom:-3rem; left:2rem;
+      height:3rem; width:4rem;
+      border:2px solid $primary-color; border-left:0; border-bottom:0; border-radius:0 50rem;
+    }
+  }
+  
+  &__person {
+    padding: .7rem 0 0 0;
+    position:relative; left:9rem;
+  }
+  &__name {
+    color: $font-color--light;
+    font-size:1.7rem; font-weight:300;
+    word-spacing:4px; letter-spacing:1px;
+  }
+  &__knownfor {
+    color: $font-color--dark;
+    font-size:1.3rem; font-weight:800;
+    word-spacing:2px; letter-spacing:.5px;
+  }
+}
+
+.slide-btns {}
+.slide-btn {
+  display: inline-block;
+  width:1rem; height:1rem;
+  background-color: $primary-color;
+  border-radius: 50rem;
+  margin: .5rem;
+  cursor: pointer;
+  transition: all .5s;
+}
+
+.active { width:2.5rem; }
